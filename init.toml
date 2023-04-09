@@ -27,6 +27,11 @@
     statusline_unicode = false
     # Enable vim compatible mode, avoid changing origin vim key bindings
     vimcompatible = true
+    # filetree
+    enable_filetree_gitstatus = true
+    filetree_direction = "left"
+    # code format
+    default_indent = 4
 
 # Enable autocomplete layer
 [[layers]]
@@ -38,3 +43,20 @@ auto_completion_tab_key_behavior = "cycle"
 name = 'shell'
 default_position = 'top'
 default_height = 30
+
+[[layers]]
+name = "lang#c"
+enable_clang_syntax_highlight = true
+[layers.clang_std]
+    c = "c14"
+    cpp = "c++14"
+
+[[layers]]
+  name = "lsp"
+  enabled_clients = ['clangd']
+  filetypes = [
+    "c",
+    "cpp"
+  ]
+  [layers.override_cmd]
+    c = ["clangd"]
